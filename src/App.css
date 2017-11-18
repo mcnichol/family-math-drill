@@ -25,7 +25,7 @@
    vertical-align: sub;
 }
 
-.userAnswer {
+.user-answer {
    display: flex;
    flex-flow: column;
    justify-content: center;
@@ -33,7 +33,6 @@
    width: 150px;
    font-size: 40px;
    border: thin solid black;
-   margin: 90px 0 0 200px;
 }
 
 Button {

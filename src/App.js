@@ -5,16 +5,17 @@ class App extends Component {
    constructor(props){
       super(props);
       this.state = {
-         "isCorrect" : null,
-         "num1" : null,
-         "num2" : null,
-         "difficulty" : 0,
-         "result" : null
+         "isCorrect": undefined,
+         "num1": undefined,
+         "num2": undefined,
+         "difficulty": 0,
+         "result": undefined
       }
 
       this.updateQuestion = this.updateQuestion.bind(this);
       this.checkAnswer = this.checkAnswer.bind(this);
       this.pressKey = this.pressKey.bind(this);
+      this.delete = this.delete.bind(this);
    }
 
    componentDidMount(){
@@ -24,7 +25,16 @@ class App extends Component {
    pressKey(value){
       this.setState((prevState, props) => {
          return {
-            "userAnswer": prevState.userAnswer !== undefined ? prevState.userAnswer + value  + "" : value + ""
+            "isCorrect": undefined,
+            "userAnswer": prevState.userAnswer !== undefined ? prevState.userAnswer + value  + "": value + ""
+         }
+      });
+   }
+
+   delete(){
+      this.setState((prevState, props) => {
+         return {
+            "userAnswer": undefined
          }
       });
    }
@@ -36,7 +46,7 @@ class App extends Component {
       this.setState((prevState, props) => {
          return {
             "isCorrect": null,
-            "num1" : num1,
+            "num1": num1,
             "num2": num2,
             "result": num1*num2,
             "userAnswer": undefined
@@ -51,8 +61,9 @@ class App extends Component {
          console.log("Stepping up the Difficulty");
       }else{
          this.setState({
-            "isCorrect" : "Incorrect",
-            "difficulty": this.state.difficulty - 1
+            "isCorrect": "Incorrect",
+            "difficulty": this.state.difficulty - 1,
+            "userAnswer": undefined
          });
       }
    }
@@ -64,35 +75,40 @@ class App extends Component {
                <h1 className="App-title">Family Math Drill</h1>
             </header>
             <div className="question-answer">
-               <div>
+               <div className="question">
                   <div className="equation">
                      <span className="operand">{this.state.num1}</span>
                      <span className="operation">*</span>
                      <span className="operand">{this.state.num2}</span>
                   </div>
-                  <div>
-                     <button onClick={this.pressKey.bind(null, 1)}>1</button>
-                     <button onClick={this.pressKey.bind(null, 2)}>2</button>
-                     <button onClick={this.pressKey.bind(null, 3)}>3</button>
-                  </div>
-                  <div>
-                     <button onClick={this.pressKey.bind(null, 4)}>4</button>
-                     <button onClick={this.pressKey.bind(null, 5)}>5</button>
-                     <button onClick={this.pressKey.bind(null, 6)}>6</button>
-                  </div>
-                  <div>
-                     <button onClick={this.pressKey.bind(null, 7)}>7</button>
-                     <button onClick={this.pressKey.bind(null, 8)}>8</button>
-                     <button onClick={this.pressKey.bind(null, 9)}>9</button>
-                  </div>
-                  <div>
-                     <button >&#x2718;</button>
-                     <button onClick={this.pressKey.bind(null, 0)}>0</button>
-                     <button onClick={this.checkAnswer}>&#x2714;</button>
+                  <div className="keyboard">
+                     <div>
+                        <button onClick={this.pressKey.bind(null, 1)}>1</button>
+                        <button onClick={this.pressKey.bind(null, 2)}>2</button>
+                        <button onClick={this.pressKey.bind(null, 3)}>3</button>
+                     </div>
+                     <div>
+                        <button onClick={this.pressKey.bind(null, 4)}>4</button>
+                        <button onClick={this.pressKey.bind(null, 5)}>5</button>
+                        <button onClick={this.pressKey.bind(null, 6)}>6</button>
+                     </div>
+                     <div>
+                        <button onClick={this.pressKey.bind(null, 7)}>7</button>
+                        <button onClick={this.pressKey.bind(null, 8)}>8</button>
+                        <button onClick={this.pressKey.bind(null, 9)}>9</button>
+                     </div>
+                     <div>
+                        <button onClick={this.delete}>&#x2718;</button>
+                        <button onClick={this.pressKey.bind(null, 0)}>0</button>
+                        <button onClick={this.checkAnswer}>&#x2714;</button>
+                     </div>
                   </div>
                </div>
-               <div className="userAnswer">
-                  {this.state.userAnswer}
+               <div className="answer">
+                  <div className="user-answer">
+                     <div>{this.state.userAnswer}</div>
+                  </div>
+                  <div>{this.state.isCorrect}</div>
                </div>
             </div>
          </div>
@@ -102,14 +118,14 @@ class App extends Component {
 
 /*
  * X Show user an equation
- * - User can enter an answer
+ * X User can enter an answer
  * - App will tell user if they are correct or incorrect
- *    - If incorrect, displays message "Try Again"
- *    - If correct, show user a new equation
+ *    X If incorrect, displays message "Try Again" and clear answer box
+ *    X If correct, show user a new equation
  *
  * List of Stuff to deal with:
- * - Users don't like double-tap issue on iPad
- * - Need Delete Key
- * - Adjustable Answer Box
+ * X Users don't like double-tap issue on iPad
+ * X Need Delete Key
+ * - Adjust Answer Box
  */
 export default App;

@@ -1,0 +1,18 @@
+{
+   "mom" : {
+      "style-1": "#F0F7EE",
+      "style-2": "#C4D7F2",
+      "style-3": "#92B9BD",
+      "style-4": "#776871",
+      "style-5": "#94FBAB",
+      "style-6": "#94FBAB"
+   },
+   "augs" : {
+      "style-1": "#63D2FF",
+      "style-2": "#982649",
+      "style-3": "#92B9BD",
+      "style-4": "#776871",
+      "style-5": "#94FBAB",
+      "style-6": "#982649"
+   }
+}

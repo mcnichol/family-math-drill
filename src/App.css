@@ -1,16 +1,29 @@
+body{
+   font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
 .App {
    text-align: center;
 }
 
 .App-header {
-   background-color: #222;
    height: 4.25em;
    padding: 2.25em;
-   color: white;
 }
 
 .App-title {
-   font-size: 1.5em;
+   font-size: 2em;
+}
+
+.question-answer {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   margin: 10px;
+}
+
+.question {
+   margin: 5px;
 }
 
 .equation {
@@ -25,25 +38,26 @@
    vertical-align: sub;
 }
 
-.user-answer {
-   display: flex;
-   flex-flow: column;
-   justify-content: center;
-   height: 150px;
-   width: 150px;
-   font-size: 40px;
-   border: thin solid black;
-}
-
-Button {
+.question Button {
+   font-size: 20px;
    height: 90px;
    width: 90px;
    padding: 5px;
    margin: 5px;
 }
 
-.question-answer {
-   display: flex;
-   flex-direction: row;
-   justify-content: center;
+.answer {
+   margin: 100px 5px 5px 100px;
 }
+
+.user-answer {
+   display: flex;
+   flex-flow: column;
+   justify-content: center;
+   height: 200px;
+   width: 200px;
+   font-size: 40px;
+   border: thin solid black;
+}
+
+

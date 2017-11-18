@@ -1,0 +1,50 @@
+.App {
+   text-align: center;
+}
+
+.App-header {
+   background-color: #222;
+   height: 4.25em;
+   padding: 2.25em;
+   color: white;
+}
+
+.App-title {
+   font-size: 1.5em;
+}
+
+.equation {
+   font-size: 40px;
+}
+
+.equation span{
+   margin: 3px;
+}
+
+.equation .operation{
+   vertical-align: sub;
+}
+
+.userAnswer {
+   display: flex;
+   flex-flow: column;
+   justify-content: center;
+   height: 150px;
+   width: 150px;
+   font-size: 40px;
+   border: thin solid black;
+   margin: 90px 0 0 200px;
+}
+
+Button {
+   height: 90px;
+   width: 90px;
+   padding: 5px;
+   margin: 5px;
+}
+
+.question-answer {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+}
